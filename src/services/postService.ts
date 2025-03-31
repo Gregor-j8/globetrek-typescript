@@ -2,26 +2,26 @@ export const getPosts = () => {
     return fetch(`http://localhost:8088/posts?_expand=user&`).then((res) => res.json())
   }
 
-  export const deletePost = (id) => {
+  export const deletePost = (id: number ) => {
     return fetch(`http://localhost:8088/posts/${id}`, {
       method: "DELETE",
     })};
 
-export const getPostsDetails = (postId) => {
+export const getPostsDetails = (postId: number) => {
     return fetch(`http://localhost:8088/posts?id=${postId}&_expand=user&`).then((res) => res.json())
   }
-export const editPosts = (postId) => {
+export const editPosts = (postId: number) => {
     return fetch(`http://localhost:8088/posts?id=${postId}`).then((res) => res.json())
   }
 
 export const getPostMarker = () => {
     return fetch(`http://localhost:8088/posts?`).then((res) => res.json())
   }
-export const getUserPostMarker = (userId) => {
+export const getUserPostMarker = (userId: number) => {
     return fetch(`http://localhost:8088/posts?userId=${userId}`).then((res) => res.json())
   }
 
-  export const getUserPosts = (userId) => {
+  export const getUserPosts = (userId: number) => {
     return fetch(`http://localhost:8088/posts?userId=${userId}&_expand=user&`).then((res) => res.json())
   }
 
