@@ -24,6 +24,11 @@ declare global {
         photoUrl: string,
         toDoList: string
     }
+    interface Follow {
+        userId: number,
+        followId: number,
+        id: number
+    }
 }
 
 export {}
