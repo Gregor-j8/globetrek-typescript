@@ -1,0 +1,10 @@
+declare global {
+    interface User {
+        id: number;
+        fullName: string,
+        email: string,
+        photoUrl?: string
+    }
+}
+
+export {}
