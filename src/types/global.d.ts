@@ -17,6 +17,13 @@ declare global {
         date: Date,
         photoUrl: string
     }
+    interface Note {
+        id: number,
+        userId: number,
+        toVisit: string,
+        photoUrl: string,
+        toDoList: string
+    }
 }
 
 export {}

@@ -25,7 +25,7 @@ export const getUserPostMarker = (userId: number) => {
     return fetch(`http://localhost:8088/posts?userId=${userId}&_expand=user&`).then((res) => res.json())
   }
 
-  export const updatePosts = async(post) => {
+  export const updatePosts = async(post: Post) => {
     return fetch(`http://localhost:8088/posts/${post.id}`, {
         method: "PATCH",
         headers: {
@@ -34,7 +34,7 @@ export const getUserPostMarker = (userId: number) => {
         body: JSON.stringify(post),
       }).then((res) => res.json())}
 
-  export const createPost = async(post) => {
+  export const createPost = async(post: Post) => {
     return fetch(`http://localhost:8088/posts`, {
         method: "POST",
         headers: {
