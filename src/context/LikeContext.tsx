@@ -1,22 +1,36 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { getLikes, createUserLike, deleteUserLike } from '../services/likeService'
 
-const LikeContext = createContext()
+interface like {
+    postId: number,
+    userId: number,
+    id: number
+}
 
-export const HandleLikes = ({ children }) => {
-    const currentUser = JSON.parse(localStorage.getItem("user"))
-    const [userLikes, setUserLikes] = useState([])
+const LikeContext = createContext<{
+    userLikes: like[]
+    isLiked: (postId: number) => boolean | undefined;
+    toggleLike: (postId: number) => void;
+}>({
+    userLikes: [],
+    isLiked: () => undefined,
+    toggleLike: () => {}
+})
+
+export const HandleLikes: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const currentUser = JSON.parse(localStorage.getItem("user") || '{}')
+    const [userLikes, setUserLikes] = useState<like[]>([])
 
     useEffect(() => {
         getLikes().then(data => {
             setUserLikes(data)})
     }, [])
 
-    const isLiked = (postId) => {
-        return userLikes.find(like => like.postId === postId && like.userId === currentUser.id)
-    };
+    const isLiked = (postId: number) => {
+        return !!userLikes.find(like => like.postId === postId && like.userId === currentUser.id)
+    }
 
-    const toggleLike = (postId) => {
+    const toggleLike = (postId: number) => {
         if (isLiked(postId)) {
             const deleteLike = userLikes.find(like => like.postId === postId && like.userId === currentUser.id)
             if (deleteLike) {
