@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 import "../../App.css"
 import { createUser, getUserByEmail } from "../../services/userService"
 import {Images} from "../Images/Images"
+import { useRouter } from "next/navigation"
 
 export const Register = () => {
   const [photoUrl, setPhotoUrl] = useState("")
@@ -10,7 +10,7 @@ export const Register = () => {
     email: "",
     fullName: "",
   })
-  let navigate = useNavigate()
+  const router = useRouter()
 
   const registerNewUser = () => {
     const newUser = {
@@ -26,7 +26,7 @@ export const Register = () => {
             id: createdUser.id,
           })
         )
-        navigate("/")
+        router.push("/") 
       }
     })
   }
