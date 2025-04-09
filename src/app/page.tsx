@@ -1,18 +1,20 @@
-import Link from 'next/link'
+'use client'
+import { Globe } from "../../public/Globe"
+import { Navbar } from "../components/Navbar"
+import HomeUser from "./Home/Home"
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      <h1 className="text-3xl font-bold">Welcome to GlobeTrek 🌍</h1>
-      <p className="text-gray-600 mt-4">Start your journey by logging in or registering.</p>
-      <div className="mt-8">
-        <Link 
-          href="/login" 
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-        >
-          Go to Login
-        </Link>
-      </div>
-    </main>
-  )
+const Home = () => {
+    return (
+      
+        <div className="w-full">
+          <Navbar />
+            <div className="flex flex-col items-center pt-16">
+                <HomeUser />
+                <section>
+                    <video loop autoPlay muted width="900" src={Globe()}></video>
+                </section>
+            </div>
+        </div>
+    )
 }
+export default Home

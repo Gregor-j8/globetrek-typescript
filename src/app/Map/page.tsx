@@ -1,3 +1,4 @@
+'use client'
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useRef, useState } from "react"
 import { MapContainer, TileLayer } from "react-leaflet";
@@ -8,8 +9,9 @@ import { UseCurrentUser } from "../../context/CurrentUserContext";
 import { GetFollowering } from "../../services/followService";
 import { GetUserById } from "../../services/userService";
 import { CitySearch } from "./CitySearch";
+import { Navbar } from '@/src/components/Navbar';
 
-export const World = () => {
+const Map = () => {
   const [NewPostModal, SetNewPostModal] = useState(false)
   const [userPost, SetUserPost] = useState(true)
   const mapRef = useRef(null)
@@ -62,6 +64,7 @@ export const World = () => {
     
   return (
       <div className="h-screen w-[100%]">
+        <Navbar />
             <MapContainer  center={[30.505, -0.09]} zoom={3} minZoom={3} maxZoom={19} maxBounds={bounds} maxBoundsViscosity={1.0}
             style={{ height: "100vh", width: "100%", position: "absolute", bottom: 0 }} ref={mapRef}>
                 <div className="flex text-xl z-[10000] w-1/8 absolute top-18 left-1">
@@ -121,3 +124,5 @@ export const World = () => {
     </div>
   )
 }
+
+export default Map

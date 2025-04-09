@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { GetUserById } from "../../services/userService"
-import { Globe } from "../../../public/Globe"
 import { UseCurrentUser } from "../../context/CurrentUserContext"
-export const HomePage = () => {
+
+const HomeUser = () => {
     const { currentUser } = UseCurrentUser()
     const [user, setUser] = useState({})
     useEffect(() => {
@@ -13,13 +13,10 @@ export const HomePage = () => {
     }, [currentUser])
 
     return (
-        <div className="w-full">
-            <div className=" flex flex-col items-center pt-16">
-                <h1 className="pt-5 pb-10 text-2xl text-color-primary">Welcome {user?.fullName}</h1>
-                <section>
-                    <video loop autoPlay muted width="900" src={Globe()}></video>
-                </section>
-            </div>
+        <div>
+            <h1 className="pt-5 pb-10 text-2xl text-color-primary">Welcome {user?.fullName}</h1>
         </div>
     )
 }
+
+export default HomeUser
