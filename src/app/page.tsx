@@ -5,7 +5,6 @@ import HomeUser from "./Home/Home"
 
 const Home = () => {
     return (
-      
         <div className="w-full">
           <Navbar />
             <div className="flex flex-col items-center pt-16">

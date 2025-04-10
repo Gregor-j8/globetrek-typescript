@@ -25,7 +25,7 @@ const { currentUser } = UseCurrentUser()
               <Link href="/"><li className="text-color-primary">Home</li></Link> 
               <Link href="/posts"><li className="text-color-primary">Posts</li></Link>
               <Link href="/map"><li className="text-color-primary">World Map</li></Link>
-              <Link href="/favorites"><li className="text-color-primary">Favorites</li></Link>
+              <Link href="/favorite"><li className="text-color-primary">Favorites</li></Link>
               <Link href="/notes"><li className="text-color-primary">Notes</li></Link>
             </ul>
             <div className="hidden xl:flex space-x-5 items-center">
@@ -46,7 +46,7 @@ const { currentUser } = UseCurrentUser()
             <Link href="/" className="py-2" onClick={() => setIsOpen(false)}>Home</Link>
             <Link href="/posts" className="py-2" onClick={() => setIsOpen(false)}>Posts</Link>
             <Link href="/map" className="py-2" onClick={() => setIsOpen(false)}>World Map</Link>
-            <Link href="/favorites" className="py-2" onClick={() => setIsOpen(false)}>Favorites</Link>
+            <Link href="/favorite" className="py-2" onClick={() => setIsOpen(false)}>Favorites</Link>
             <Link href={`/profile/${currentUser?.id}`} className="py-2" onClick={() => setIsOpen(false)}>Profile</Link>
             <Link href={`/notes`} className="py-2" onClick={() => setIsOpen(false)}>Notes</Link>
             {localStorage.getItem("user") ? (

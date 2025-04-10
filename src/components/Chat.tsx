@@ -1,3 +1,4 @@
+'use client'
 import ChatBot from "react-chatbotify"
 import { Ollama } from 'ollama/browser'
 

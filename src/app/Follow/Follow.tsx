@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useState } from "react"
 import { deleteFollow, FollowUser, GetAllFollowing, GetFollowering, GetFollowers } from "../../services/followService"
 import { FollowerModal } from "./FollowerModal"
